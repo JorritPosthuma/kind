@@ -118,6 +118,7 @@ func createNode(name, image, clusterLabel string, extraArgs ...string) (handle *
 		"--tmpfs", "/run", // systemd wants a writable /run
 		// some k8s things want /lib/modules
 		"-v", "/lib/modules:/lib/modules:ro",
+		"-v", "/Users/jorrit:/Users/jorrit,
 		"--hostname", name, // make hostname match container name
 		"--name", name, // ... and set the container name
 		// label the node with the cluster ID
